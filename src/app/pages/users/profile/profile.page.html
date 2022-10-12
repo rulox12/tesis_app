@@ -1,0 +1,43 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="back()">
+      <ion-icon name="chevron-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button></ion-button>
+  </ion-buttons>
+  <ion-title style="text-align: center">Perfil</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <ion-list style="padding: 20px">
+      <div class="ion-text-center"  style="padding: 10px">
+        <ion-label style="color: #3c3c41; font-weight: bold;">Nombre</ion-label>
+      </div>
+      <ion-input class="input" formControlName="name"></ion-input>
+      <div class="ion-text-center" style="padding: 10px">
+        <ion-label style="color: #3c3c41; font-weight: bold; ">Apellido</ion-label>
+      </div>
+      <ion-input class="input" formControlName="surname"></ion-input>
+      <div class="ion-text-center" style="padding: 10px">
+        <ion-label style="color: #3c3c41; font-weight: bold;">Telefono</ion-label>
+      </div>
+      <ion-input class="input" formControlName="phone"></ion-input>
+      <div class="ion-text-center" style="padding: 10px">
+        <ion-label style="color: #3c3c41; font-weight: bold; padding-left: 10px">Documento</ion-label>
+      </div>
+      <ion-input class="input" formControlName="document"></ion-input>
+      <div class="ion-text-center" style="padding: 10px">
+        <ion-button size="block" type="submit" color="tertiary" style="border-radius: 20px">Editar perfil</ion-button>
+      </div>
+    </ion-list>
+  </form>
+  <ion-footer class="ion-no-border">
+    <div class="ion-text-center" style="padding: 10px">
+      <ion-button color="tertiary" size="small" (click)="presentFormPassword()">Cambiar contraseña</ion-button>
+      <ion-button color="danger" size="small" (click)="logout()">Cerrar sesion</ion-button>
+    </div>
+  </ion-footer>
+</ion-content>
