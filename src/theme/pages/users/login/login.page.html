@@ -1,0 +1,45 @@
+<ion-content fullscreen>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button></ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center">Ingresar</ion-title>
+  </ion-toolbar>
+  <ion-list lines="full" class="ion-no-margin">
+    <form [formGroup]="loginForm" (ngSubmit)="submitFormLogin()" novalidate>
+      <ion-input class="input"
+                 style="margin-top: 10px;"
+                 name="email"
+                 type="email"
+                 formControlName="email"
+                 required
+                 placeholder="Correo">
+      </ion-input>
+      <ion-input class="input"
+                 style="margin-top: 10px;"
+                 name="password"
+                 type="password"
+                 formControlName="password"
+                 required
+                 placeholder="Contraseña">
+      </ion-input>
+      <br/>
+      <ion-button class="submit-button" expand="block" type="submit">Ingresar</ion-button>
+    </form>
+    <ion-item lines="none" (click)="go('/remember')">
+      <ion-note color="primary" slot="end">¿ Olvidaste la contraseña ?</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-button class="button-register" (click)="go('/register')" expand="full" color="light">
+    <ion-icon name="person-add-outline" slot="start"></ion-icon>
+    ¿ Deseas registrarte ?
+  </ion-button>
+</ion-footer>
+
