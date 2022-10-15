@@ -1,0 +1,61 @@
+<ion-content [fullscreen]="true">
+  <ion-header mode="ios">
+    <ion-toolbar>
+      <ion-button slot="start"  class="button-back" (click)="back()">
+        <ion-icon name="chevron-back" color="primary"></ion-icon>
+      </ion-button>
+      <ion-buttons slot="end" *ngIf="this.user && !this.favorite">
+        <ion-button (click)="addFavorite()">
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" *ngIf="this.user && this.favorite">
+        <ion-button (click)="deleteFavorite()">
+          <ion-icon name="star"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align: center !important;">
+        <ion-text color="dark">
+          <img [src]="baseUrlForImage + commerce?.logo" style="max-width: 100px; max-height: 100px" />
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="dark">
+          <h5 style="font-weight: bold">Pagos electrónicos</h5>
+          <p style="font-size: 10px">{{commerce?.description}}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form (ngSubmit)="login()">
+          <ion-list>
+            <ion-label position="stacked">Ingrese su documento</ion-label>
+            <ion-input class="input"
+                       style="margin-top: 10px; border-radius: 50px "
+                       name="document"
+                       [(ngModel)]="document"
+                       required>
+
+            </ion-input>
+            <ion-button class="submit-button" expand="block" type="submit">Consultar</ion-button>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="micro-site-form">
+  </div>
+</ion-content>
+<ion-footer *ngIf="this.user">
+  <ion-button expand="block" (click)="getBillByDocument()">
+    Desea consultar con su documento
+  </ion-button>
+</ion-footer>
